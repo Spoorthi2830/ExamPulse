@@ -6,20 +6,24 @@ import {
   LayoutDashboard,
   LogOut,
   Menu,
+  Send,
   ShieldCheck,
   User,
   X,
+  Zap,
 } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { adminAuthService } from '../services/adminAuthService';
 
 const NAV_LINKS = [
-  { label: 'Dashboard', icon: LayoutDashboard, to: '/admin/dashboard' },
-  { label: 'All Reports', icon: ClipboardList, to: '/admin/reports' },
-  { label: 'Categories', icon: BookOpen, to: '/admin/categories' },
-  { label: 'Departments', icon: Building2, to: '/admin/departments' },
-  { label: 'Analytics', icon: BarChart2, to: '/admin/analytics' },
+  { label: 'Dashboard',      icon: LayoutDashboard, to: '/admin/dashboard' },
+  { label: 'All Reports',    icon: ClipboardList,   to: '/admin/reports' },
+  { label: 'Categories',     icon: BookOpen,        to: '/admin/categories' },
+  { label: 'Departments',    icon: Building2,       to: '/admin/departments' },
+  { label: 'Analytics',      icon: BarChart2,       to: '/admin/analytics' },
+  { label: 'Dispatch',       icon: Send,            to: '/admin/dispatch' },
+  { label: 'Scheduler',      icon: Zap,             to: '/admin/scheduler' },
 ];
 
 export function AdminHeader({ user }) {

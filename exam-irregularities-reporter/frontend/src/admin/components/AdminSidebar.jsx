@@ -4,16 +4,20 @@ import {
   Building2,
   ClipboardList,
   LayoutDashboard,
+  Send,
   ShieldCheck,
+  Zap,
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const NAV_ITEMS = [
-  { label: 'Dashboard', icon: LayoutDashboard, path: '/admin/dashboard' },
-  { label: 'All Reports', icon: ClipboardList, path: '/admin/reports' },
-  { label: 'Categories', icon: BookOpen, path: '/admin/categories' },
-  { label: 'Departments', icon: Building2, path: '/admin/departments' },
-  { label: 'Analytics', icon: BarChart2, path: '/admin/analytics' },
+  { label: 'Dashboard',         icon: LayoutDashboard, path: '/admin/dashboard' },
+  { label: 'All Reports',       icon: ClipboardList,   path: '/admin/reports' },
+  { label: 'Categories',        icon: BookOpen,        path: '/admin/categories' },
+  { label: 'Departments',       icon: Building2,       path: '/admin/departments' },
+  { label: 'Analytics',         icon: BarChart2,       path: '/admin/analytics' },
+  { label: 'Dispatch Mgmt',     icon: Send,            path: '/admin/dispatch' },
+  { label: 'Scheduler Demo',    icon: Zap,             path: '/admin/scheduler' },
 ];
 
 export function AdminSidebar() {

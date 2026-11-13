@@ -10,13 +10,14 @@ export const SESSIONS = ['Morning', 'Afternoon', 'Evening'];
 
 export const BRANCHES = ['CSE', 'ECE', 'CIVL', 'ME', 'EEE', 'ISE'];
 
-// Placeholder department mapping — will be replaced by backend logic in Part C
+// Category → Department mapping (mirrors src/config/dispatchConfig.js)
+// Single source of truth is dispatchConfig.js — this export kept for backward compatibility.
 export const DEPT_MAPPING = {
-  Malpractice: 'Examination Cell',
-  Medical: 'Student Welfare',
-  Technical: 'Infrastructure & Facilities',
-  Disturbance: 'Campus Security',
-  'Missing Script': 'Examination Cell',
+  Malpractice:      'Examination Discipline',
+  Medical:          'Medical Support',
+  Technical:        'Technical Support',
+  Disturbance:      'Security Department',
+  'Missing Script': 'Examination Section',
 };
 
 export const MOCK_REPORTS = [
@@ -26,7 +27,7 @@ export const MOCK_REPORTS = [
     examDate: '2024-11-10',
     session: 'Morning',
     branch: 'CSE',
-    department: 'Examination Cell',
+    department: 'Examination Discipline',
     hall: 'Block A',
     roomNumber: 'A101',
     seatNumber: '14',
@@ -52,7 +53,7 @@ export const MOCK_REPORTS = [
     examDate: '2024-11-11',
     session: 'Afternoon',
     branch: 'ECE',
-    department: 'Student Welfare',
+    department: 'Medical Support',
     hall: 'Block B',
     roomNumber: 'B204',
     seatNumber: '07',
@@ -78,7 +79,7 @@ export const MOCK_REPORTS = [
     examDate: '2024-11-12',
     session: 'Morning',
     branch: 'ISE',
-    department: 'Infrastructure & Facilities',
+    department: 'Technical Support',
     hall: 'Block C',
     roomNumber: 'C305',
     seatNumber: '',
@@ -104,7 +105,7 @@ export const MOCK_REPORTS = [
     examDate: '2024-11-13',
     session: 'Morning',
     branch: 'CSE',
-    department: 'Campus Security',
+    department: 'Security Department',
     hall: 'Block A',
     roomNumber: 'A102',
     seatNumber: '22',
@@ -130,7 +131,7 @@ export const MOCK_REPORTS = [
     examDate: '2024-11-14',
     session: 'Afternoon',
     branch: 'CSE',
-    department: 'Examination Cell',
+    department: 'Examination Section',
     hall: 'Block D',
     roomNumber: 'D401',
     seatNumber: '03',
@@ -156,7 +157,7 @@ export const MOCK_REPORTS = [
     examDate: '2024-11-15',
     session: 'Morning',
     branch: 'EEE',
-    department: 'Examination Cell',
+    department: 'Examination Discipline',
     hall: 'Block B',
     roomNumber: 'B101',
     seatNumber: '09',
@@ -182,7 +183,7 @@ export const MOCK_REPORTS = [
     examDate: '2024-11-15',
     session: 'Afternoon',
     branch: 'CIVL',
-    department: 'Student Welfare',
+    department: 'Medical Support',
     hall: 'Block E',
     roomNumber: 'E201',
     seatNumber: '31',
@@ -208,7 +209,7 @@ export const MOCK_REPORTS = [
     examDate: '2024-11-16',
     session: 'Morning',
     branch: 'ME',
-    department: 'Infrastructure & Facilities',
+    department: 'Technical Support',
     hall: 'Block F',
     roomNumber: 'F102',
     seatNumber: '',
@@ -234,7 +235,7 @@ export const MOCK_REPORTS = [
     examDate: '2024-11-17',
     session: 'Morning',
     branch: 'ECE',
-    department: 'Campus Security',
+    department: 'Security Department',
     hall: 'Block B',
     roomNumber: 'B302',
     seatNumber: '18',
@@ -260,7 +261,7 @@ export const MOCK_REPORTS = [
     examDate: '2024-11-18',
     session: 'Afternoon',
     branch: 'ISE',
-    department: 'Examination Cell',
+    department: 'Examination Section',
     hall: 'Block C',
     roomNumber: 'C401',
     seatNumber: '05',
@@ -286,7 +287,7 @@ export const MOCK_REPORTS = [
     examDate: '2024-11-19',
     session: 'Morning',
     branch: 'CIVL',
-    department: 'Examination Cell',
+    department: 'Examination Discipline',
     hall: 'Block E',
     roomNumber: 'E103',
     seatNumber: '27',
@@ -312,7 +313,7 @@ export const MOCK_REPORTS = [
     examDate: '2024-11-20',
     session: 'Morning',
     branch: 'EEE',
-    department: 'Infrastructure & Facilities',
+    department: 'Technical Support',
     hall: 'Block B',
     roomNumber: 'B205',
     seatNumber: '',
@@ -349,4 +350,18 @@ export const AUTHORIZED_USERS = [
 // Admin demo users — separate from invigilator auth
 export const ADMIN_USERS = [
   { adminId: 'ADMIN001', password: 'admin123', name: 'Dr. Ramesh Kumar', role: 'Chief Examination Officer' },
+];
+
+/**
+ * Department staff demo users — separate from both invigilator and admin auth.
+ * Each staff member is bound to exactly one department.
+ * Real authorization will be enforced by the backend in Part D.
+ * Replace with API-backed auth in Part D.
+ */
+export const DEPT_STAFF_USERS = [
+  { staffId: 'STAFF-DISC01', password: 'staff123', name: 'Mr. Venkat Rao',    department: 'Examination Discipline', role: 'Discipline Officer' },
+  { staffId: 'STAFF-MED01',  password: 'staff123', name: 'Dr. Anitha Menon',  department: 'Medical Support',        role: 'Medical Officer' },
+  { staffId: 'STAFF-TECH01', password: 'staff123', name: 'Mr. Kiran Patil',   department: 'Technical Support',      role: 'Technical Officer' },
+  { staffId: 'STAFF-SEC01',  password: 'staff123', name: 'Mr. Suresh Kumar',  department: 'Security Department',    role: 'Security Officer' },
+  { staffId: 'STAFF-SEC201', password: 'staff123', name: 'Ms. Lakshmi Devi',  department: 'Examination Section',    role: 'Section Officer' },
 ];
