@@ -79,6 +79,7 @@ function TrackByIdPage({ id }) {
               ['Examination', report.examName],
               ['Date', report.examDate],
               ['Session', report.session],
+              ['Branch', report.branch || '—'],
               ['Hall', report.hall],
               ['Room', report.roomNumber],
               ['Seat', report.seatNumber || '—'],

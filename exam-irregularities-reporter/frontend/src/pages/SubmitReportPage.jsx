@@ -2,13 +2,14 @@ import { CheckCircle, ChevronRight, Paperclip, Upload } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FormInput, FormSelect, FormTextarea } from '../components/FormFields';
-import { CATEGORIES, SESSIONS } from '../data/mockData';
+import { BRANCHES, CATEGORIES, SESSIONS } from '../data/mockData';
 import { reportService } from '../services/reportService';
 
 const INITIAL = {
   examName: '',
   examDate: '',
   session: '',
+  branch: '',
   hall: '',
   roomNumber: '',
   seatNumber: '',
@@ -36,6 +37,7 @@ export default function SubmitReportPage() {
     if (!form.examName.trim()) e.examName = 'Examination name is required.';
     if (!form.examDate) e.examDate = 'Examination date is required.';
     if (!form.session) e.session = 'Session is required.';
+    if (!form.branch) e.branch = 'Branch is required.';
     if (!form.hall.trim()) e.hall = 'Examination hall is required.';
     if (!form.roomNumber.trim()) e.roomNumber = 'Room number is required.';
     if (!form.category) e.category = 'Category is required.';
@@ -72,6 +74,7 @@ export default function SubmitReportPage() {
           </div>
           <div className="text-sm text-gray-600 mb-8 space-y-1">
             <p><span className="font-medium">Exam:</span> {submitted.examName}</p>
+            <p><span className="font-medium">Branch:</span> {submitted.branch}</p>
             <p><span className="font-medium">Category:</span> {submitted.category}</p>
             <p><span className="font-medium">Submitted:</span> {new Date(submitted.submittedAt).toLocaleString()}</p>
           </div>
@@ -151,6 +154,16 @@ export default function SubmitReportPage() {
             >
               <option value="">Select session</option>
               {SESSIONS.map((s) => <option key={s} value={s}>{s}</option>)}
+            </FormSelect>
+            <FormSelect
+              label="Branch"
+              required
+              value={form.branch}
+              onChange={set('branch')}
+              error={errors.branch}
+            >
+              <option value="">Select Branch</option>
+              {BRANCHES.map((b) => <option key={b} value={b}>{b}</option>)}
             </FormSelect>
             <FormInput
               label="Examination Hall"

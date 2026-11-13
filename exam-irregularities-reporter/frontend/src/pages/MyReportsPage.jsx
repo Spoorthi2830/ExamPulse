@@ -51,6 +51,7 @@ export default function MyReportsPage() {
                   <th className="text-left px-6 py-3">Report ID</th>
                   <th className="text-left px-6 py-3">Date</th>
                   <th className="text-left px-6 py-3">Examination</th>
+                  <th className="text-left px-6 py-3">Branch</th>
                   <th className="text-left px-6 py-3">Category</th>
                   <th className="text-left px-6 py-3">Priority</th>
                   <th className="text-left px-6 py-3">Department</th>
@@ -66,6 +67,7 @@ export default function MyReportsPage() {
                     </td>
                     <td className="px-6 py-3 text-gray-500 whitespace-nowrap">{r.examDate}</td>
                     <td className="px-6 py-3 text-gray-700 max-w-[160px] truncate">{r.examName}</td>
+                    <td className="px-6 py-3 text-gray-600 whitespace-nowrap">{r.branch || '—'}</td>
                     <td className="px-6 py-3 text-gray-600 whitespace-nowrap">{r.category}</td>
                     <td className="px-6 py-3 whitespace-nowrap">
                       <PriorityBadge priority={r.priority} />
